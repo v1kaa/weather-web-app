@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Weather App
+  body
+    .container
+      h1 Weather App
+      form(action="/weather", method="get")
+        input(type="text", name="city", placeholder="Enter city name")
+        button(type="submit") Get Weather
+      if error
+        p.error= error
+      else if weather
+        .card
+          p #{weather.main.temp}°C
+          p #{weather.weather[0].main}
+          p #{weather.weather[0].description}
+          p #{weather.name}, #{weather.sys.country}
