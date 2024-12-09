@@ -46,7 +46,7 @@ route.get('/allUsers',async (req,res)=>{
 
 route.put('/update/:id',async(req,res)=>{
     try {
-        const id = req.body._id;
+        const id = req.params.id;
         console.log(id);
         const userExist = await User.findOne({_id:id})
         if(!userExist){
@@ -63,7 +63,7 @@ route.put('/update/:id',async(req,res)=>{
 
 route.delete('/delete/:id',async(req,res)=>{
     try {
-        const id = req.body._id;
+        const id = req.params.id;
         console.log(req.body);
         const userExist = await User.findOne({_id:id})
         if(!userExist){
